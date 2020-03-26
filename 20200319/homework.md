@@ -1,4 +1,4 @@
-####1、
+﻿####1、
 + undefined   13
 +  报错
 +  报错
@@ -7,16 +7,16 @@
 + 10,13,14
 + 100,13,200
 + 100,undefined,200
-![Alt text](./1584588504297.png)
+https://github.com/mazizhao/LearningJs/blob/master/20200319/1584588504297.png
 ####3、
 + [12,13]
 + [0]
 + [100,23]
-![Alt text](./1584591095866.png)
+https://github.com/mazizhao/LearningJs/blob/master/20200319/1584591095866.png
 ####4、
 + 10 
 + 10
-![Alt text](./1584594236710.png)
+https://github.com/mazizhao/LearningJs/blob/master/20200319/1584594236710.png
 ####5、
 + 1
 + {name:"jack"}
