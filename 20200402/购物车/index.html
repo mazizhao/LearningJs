@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>珠峰培训</title>
+	<style>
+		body,
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="price.css" />
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="box">
+			<ul class="list">
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong>12.5元 </strong> 小计：<strong>0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong>10.5元 </strong> 小计：<strong>0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong>8.5元 </strong> 小计：<strong>0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong>8元 </strong> 小计：<strong>0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong>14.5元 </strong> 小计：<strong>0元</strong>
+					</span>
+				</li>
+			</ul>
+			<div class="info">
+				<span>商品公合计：<em>0</em>件</span>
+				<span>共花费了：<em>0</em>元</span>
+				<br />
+				<br />
+				<span>其中最贵的商品单价是：<em>0</em>元</span>
+			</div>
+		</div>
+	</div>
+	<script>
+		let shopping = (function () {
+			let btn = document.querySelectorAll(".wrap .box .list li"),
+				cont = document.querySelectorAll(".list li em"),
+				aunt = document.querySelectorAll(".info span em"),
+				subto = document.querySelectorAll(".list li span strong:last-child")
+			console.log(subto)
+			for (let i = 0; i < btn.length; i++) {
+				num(btn[i])
+			}
+			//加减
+			function num(li) {
+				let bts = li.querySelectorAll('i'),
+					mangy = li.querySelector("em"),
+					unitp = li.querySelectorAll("span strong")//单价和小计
+				let total = 0;//数量
+				//总计
+				bts[0].onclick = function () {
+					total -= 1
+					if (total <= 0) {
+						mangy.innerHTML = 0
+						total = 0
+					} else {
+						mangy.innerHTML = total
+					}
+					unitp[1].innerHTML = `${parseFloat(unitp[0].innerHTML).toFixed(2) * (Number(mangy.innerHTML))}元`
+					sum()
+				}
+				bts[1].onclick = function () {
+					total += 1
+					mangy.innerHTML = total
+					unitp[1].innerHTML = `${parseFloat(unitp[0].innerHTML).toFixed(2) * (Number(mangy.innerHTML))}元`
+					sum()
+				}
+			}
+			function sum() {
+				//数量
+				let total = 0
+				cont.forEach(item => {
+					total += Number(item.innerHTML)
+				})
+				aunt[0].innerHTML = total
+				//价钱
+				let subRes = 0,
+					arr = []
+				for (let i = 0; i < subto.length; i++) {
+
+					arr.push(Number(parseFloat(subto[i].innerHTML).toFixed(2)))
+				}
+				arr.forEach(item => {
+					subRes += item
+				})
+				aunt[1].innerHTML = subRes
+				//最贵商品
+				arr.sort((a, b) => {
+					return b - a
+				})
+				aunt[2].innerHTML = arr[0]
+			}
+			return {
+				inin() {
+					num()
+					sum()
+				}
+			}
+		})()
+		shopping.inin()
+	</script>
+</body>
+
+</html>
