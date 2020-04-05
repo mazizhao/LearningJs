@@ -1,0 +1,82 @@
+body {
+  background-color: lightgrey;
+}
+
+.header {
+  width: 1000px;
+  background-color: rgb(117, 58, 91);
+  margin: 30px auto;
+  height: 40px;
+  line-height: 40px;
+}
+
+.header span {
+  font-size: 20px;
+  color: #fff;
+  padding-left: 20px;
+}
+
+.header a {
+  color: #fff;
+  padding-left: 25px;
+  position: relative;
+}
+
+.header i {
+  width: 0;
+  height: 0;
+}
+
+.header i.up {
+  border: 5px solid;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  margin: 11px 0 0 4px;
+}
+
+.header i.down {
+  border: 5px solid;
+  border-color: #fff transparent transparent transparent;
+  position: absolute;
+  margin: 25px 0 0 4px;
+}
+
+.cardBox {
+  width: 1000px;
+  display: flex;
+  margin: 30px auto;
+  flex-wrap: wrap;
+}
+
+.cardBox li {
+  margin: -10px 0 30px 10px;
+  padding: 15px 0;
+  width: 23.5%;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+.cardBox img {
+  width: 240px;
+  height: 240px;
+}
+
+.cardBox span {
+  display: block;
+  padding-left: 30px;
+  font-size: 15px;
+  color: red;
+}
+
+.container a:hover {
+  color: red;
+}
+
+.container a i.up.bg {
+  border-bottom-color: red;
+}
+
+.container a i.down.bg {
+  border-top-color: red;
+}
