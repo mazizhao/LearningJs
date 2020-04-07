@@ -24,11 +24,11 @@ ul li:nth-child(1){
     margin-top: 20px;
     margin-left: 4px;
     float: left;
-    transition: top 2s;
+    transition: all 1s linear;
 }
 .card:hover{
     box-shadow: 5px 10px 10px grey;
-    top: -10px;
+    margin-top: 15px;
     
 }
 .card img{
