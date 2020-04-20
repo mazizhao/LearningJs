@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0;maximun-scale=1.0;minimum-scale-1.0;user-scalable=no;">
+    <meta name="description " content=" ">
+    <meta name="keywords " content=" ">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+
+    <!-- IMPORT CSS -->
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 500%;
+            height: 500%;
+            background: -webkit-linear-gradient(top left, blue, green, red)
+        }
+
+        .box {
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            position: absolute;
+            /* transition: all 1s linear; */
+        }
+
+        .backTop {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background: lightblue;
+            opacity: 0;
+            transition: all .5s linear;
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="backTop">返回顶部</div>
+    <!-- IMPORT JS -->
+    <script>
+        let backTop = document.querySelector('.backTop');
+        window.onscroll = function () {
+            let htmlTop = document.documentElement.clientHeight,
+                boxTop = document.documentElement.scrollTop;
+            if (boxTop >= htmlTop) {
+                setCss(backTop, 'opacity', 1);
+            } else {
+                setCss(backTop, 'opacity', 0);
+            }
+        }
+        console.time("aa")
+        backTop.onclick = function () {
+            let HTML = document.documentElement,
+                duration = 2000;
+            let timer = setInterval(() => {
+                let step = (HTML.scrollTop / 2000 * 17);
+                HTML.scrollTop -= step;
+                if (HTML.scrollTop <= 0) {
+                    clearInterval(timer);
+                    timer = null;
+                    return;
+                }
+            }, 17);
+        }       
+        console.timeEnd("aa");
+        function setCss(element, attr, value) {
+            if (attr === "opacity") {
+                element['style']['opacity'] = value;
+                element['style']['filter'] = `alpha(opacity=${value * 100})`;
+                return;
+            }
+            let reg = /^(widht|height|margin|padding)?(top|left|bottom|right)?$/i;
+            if (reg.test(attr)) {
+                if (!isNaN(value)) {
+                    value += 'px';
+                }
+            }
+            element['style'][attr] = value;
+        }
+    </script>
+</body>
+
+</html>

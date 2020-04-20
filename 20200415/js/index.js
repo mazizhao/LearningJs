@@ -43,8 +43,8 @@ let waterFall = (function () {
                 column[index].appendChild(lazyBox);
             });
         }
-    }
-
+    }      
+        
     let lazyImg = function lazyImg() {
         let lazypic = document.querySelectorAll('.card');
         [].forEach.call(lazypic, item => {
