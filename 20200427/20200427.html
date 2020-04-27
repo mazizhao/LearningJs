@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0;maximun-scale=1.0;minimum-scale-1.0;user-scalable=no;">
+    <meta name="description " content=" ">
+    <meta name="keywords " content=" ">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <!-- IMPORT CSS -->
+    <style>
+        .box {
+            margin: 20px;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #temp {
+            position: fixed;
+            width: 300px;
+            height: 200px;
+            display: none;
+        }
+
+        #temp img {
+            width: 400px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box1">
+        <img class="pic" src="banner01.png" alt="">
+    </div>
+    <div class="box" id="box2">
+        <img class="pic" src="banner02.png" alt="">
+    </div>
+    <div id="temp">
+        <!-- <img  class="pic" src="banner01.png" alt=""> -->
+    </div>
+
+    <!-- IMPORT JS -->
+    <script>
+        box1.onmousemove = function (ev) {
+            let t = ev.clientY + 50,
+                l = ev.clientX;
+
+            let str = ``;
+            temp.style.cssText = `
+                display:block;
+                left:${l}px;
+                top:${t}px;
+            `;
+            str = `<img class="pic" src="banner01.png" alt="">`;
+            temp.innerHTML = str;
+
+        }
+        box1.onmouseout = function (ev) {
+            temp.style.display = 'none';
+            temp.innerHTML = '';
+        }
+        box2.onmousemove = function (ev) {
+            let t = ev.clientY + 50,
+                l = ev.clientX;
+
+            let str = ``;
+            temp.style.cssText = `
+                display:block;
+                left:${l}px;
+                top:${t}px;
+            `;
+            str = `<img class="pic" src="banner02.png" alt="">`;
+            temp.innerHTML = str;
+        }
+        box2.onmouseout = function (ev) {
+            temp.style.display = 'none';
+            temp.innerHTML = '';
+        }
+
+    </script>
+</body>
+
+</html>
