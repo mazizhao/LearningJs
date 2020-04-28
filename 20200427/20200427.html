@@ -50,42 +50,32 @@
 
     <!-- IMPORT JS -->
     <script>
-        box1.onmousemove = function (ev) {
-            let t = ev.clientY + 50,
-                l = ev.clientX;
-
+        let boxes=document.querySelectorAll('.box');
+        boxes.forEach(item=>{
+            item.onmousemove=function(ev){
+                render(ev);
+            }
+            item.onmouseout=function(ev){
+                clear(ev);
+            }
+        })
+        function render(ev) {
+            let t = ev.clientY + 5,
+                l = ev.clientX,
+                trueimg=ev.target.src;
             let str = ``;
             temp.style.cssText = `
                 display:block;
                 left:${l}px;
                 top:${t}px;
             `;
-            str = `<img class="pic" src="banner01.png" alt="">`;
+            str = `<img class="pic" src="${trueimg}">`;
             temp.innerHTML = str;
-
         }
-        box1.onmouseout = function (ev) {
+        function clear(ev){
             temp.style.display = 'none';
             temp.innerHTML = '';
         }
-        box2.onmousemove = function (ev) {
-            let t = ev.clientY + 50,
-                l = ev.clientX;
-
-            let str = ``;
-            temp.style.cssText = `
-                display:block;
-                left:${l}px;
-                top:${t}px;
-            `;
-            str = `<img class="pic" src="banner02.png" alt="">`;
-            temp.innerHTML = str;
-        }
-        box2.onmouseout = function (ev) {
-            temp.style.display = 'none';
-            temp.innerHTML = '';
-        }
-
     </script>
 </body>
 
