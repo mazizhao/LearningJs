@@ -261,7 +261,6 @@ let broadCastModer = (function () {
         }
 
         tweleve.style.left = ste * 215 + 'px';
-        console.log(ste)
     });
     changeRight.addEventListener('click', function (ev) {
         ste--;
@@ -467,31 +466,31 @@ let fanjuModer = (function () {
 
 })();
 // 番剧动态
-let fanjuDongtaiModer=(function(){
-       // 定义公共数据
-        // step:步长，控制当前展示的是一个SLIDER（索引）
-        // interval:间隔时间因子，控制多久切换一次
-        // autoTimer:存储自动轮播的定时器
-        // len:存储的是SLIDER的个数（包含克隆的那一个）
-    let fanjudongtaiRight=document.querySelector('.fanjudongtaiRight'),
-    ul=fanjudongtaiRight.querySelector('ul'),
-    sliderList=fanjudongtaiRight.querySelectorAll('ul li');
+let fanjuDongtaiModer = (function () {
+    // 定义公共数据
+    // step:步长，控制当前展示的是一个SLIDER（索引）
+    // interval:间隔时间因子，控制多久切换一次
+    // autoTimer:存储自动轮播的定时器
+    // len:存储的是SLIDER的个数（包含克隆的那一个）
+    let fanjudongtaiRight = document.querySelector('.fanjudongtaiRight'),
+        ul = fanjudongtaiRight.querySelector('ul'),
+        sliderList = fanjudongtaiRight.querySelectorAll('ul li');
     let step = 0,
-    interval = 2000,
-    autoTimer = null,
-    len = sliderList.length;
-function autoMove() {
-    if (step === len - 1) {
-        step = 0;
-        ul.style.transitionDuration = '0s';
-        ul.style.left = '0px';
-        ul.offsetHeight;
-    }
-    step++;
-    ul.style.transitionDuration = '.3s';
-    ul.style.left = -step * 320 + 'px';
-};
-        autoTimer = setInterval(autoMove, interval);
+        interval = 2000,
+        autoTimer = null,
+        len = sliderList.length;
+    function autoMove() {
+        if (step === len - 1) {
+            step = 0;
+            ul.style.transitionDuration = '0s';
+            ul.style.left = '0px';
+            ul.offsetHeight;
+        }
+        step++;
+        ul.style.transitionDuration = '.3s';
+        ul.style.left = -step * 320 + 'px';
+    };
+    autoTimer = setInterval(autoMove, interval);
 
 
 
@@ -513,24 +512,24 @@ function autoMove() {
             left
         }
     }
-    return{
-        init(){
+    return {
+        init() {
 
         }
     }
 })();
 fanjuDongtaiModer.init();
 // 国创
-let guochuangModer=(function(){
-    let nav=document.querySelectorAll('.guochuang li'),
-    guochuangneiP=document.querySelectorAll('.guochuangneiP'),
-    cur=0,
-    pre=0;
+let guochuangModer = (function () {
+    let nav = document.querySelectorAll('.guochuang li'),
+        guochuangneiP = document.querySelectorAll('.guochuangneiP'),
+        cur = 0,
+        pre = 0;
     for (let i = 0; i < nav.length; i++) {
-        nav[i].addEventListener('click',function(){
-            pre=cur;
-            cur=i;
-            if(pre==cur)return;
+        nav[i].addEventListener('click', function () {
+            pre = cur;
+            cur = i;
+            if (pre == cur) return;
             for (let i = 0; i < nav.length; i++) {
                 nav[cur].classList.add('cur');
                 guochuangneiP[cur].classList.add('nowPag');
@@ -539,11 +538,11 @@ let guochuangModer=(function(){
             guochuangneiP[pre].classList.remove('nowPag');
 
         });
-        
+
     }
-    
-    return{
-        init(){
+
+    return {
+        init() {
 
         }
     }
@@ -593,7 +592,6 @@ let specialRec = (function () {
         showBox[i].addEventListener('mouseover', function (ev) {
             let barrageLeft = parseFloat(window.getComputedStyle(barrage[i]).left);
             barrage[i].style.left = barrageLeft;
-            console.log(barrageLeft, barrage[i].style.left)
             timer = setInterval(function () {
                 barrageLeft -= 4;
                 if (barrageLeft <= -56) barrageLeft = 216;
@@ -680,36 +678,36 @@ let footModer = (function () {
 })();
 footModer.init();
 
-let floorNav=(function(){
-    let floorNav=document.querySelector('.floorNav'),
-    floorA=document.querySelectorAll('.floorA a'),
-    callback=document.querySelector('.callback'),
-    zhibo=document.querySelector('#zhibo'),
-    donghua=document.querySelector('#donghua'),
-    fanju=document.querySelector('#fanju'),
-    guochuang=document.querySelector('#guochuang'),
-    manhua=document.querySelector('#manhua'),
-    tuijian=document.querySelector('#tuijian'),
-    fanjuRec=document.querySelector('.specialRec'),
-    zhiboTop=offset(zhibo).top,
-    donghuaTop=offset(donghua).top,
-    fanjuTop=offset(fanju).top,
-    fanjuRecTop=offset(fanjuRec).top,
-    guochuangTop=offset(guochuang).top,
-    manhuaTop=offset(manhua).top,
-    tuijianTop=offset(tuijian).top;
+let floorNav = (function () {
+    let floorNav = document.querySelector('.floorNav'),
+        floorA = document.querySelectorAll('.floorA a'),
+        callback = document.querySelector('.callback'),
+        zhibo = document.querySelector('#zhibo'),
+        donghua = document.querySelector('#donghua'),
+        fanju = document.querySelector('#fanju'),
+        guochuang = document.querySelector('#guochuang'),
+        manhua = document.querySelector('#manhua'),
+        tuijian = document.querySelector('#tuijian'),
+        fanjuRec = document.querySelector('.specialRec'),
+        zhiboTop = offset(zhibo).top,
+        donghuaTop = offset(donghua).top,
+        fanjuTop = offset(fanju).top,
+        fanjuRecTop = offset(fanjuRec).top,
+        guochuangTop = offset(guochuang).top,
+        manhuaTop = offset(manhua).top,
+        tuijianTop = offset(tuijian).top;
     callback.onclick = function () {
-        let HTML=document.documentElement,
-        duration=1000;        
+        let HTML = document.documentElement,
+            duration = 1000;
         let timer = setInterval(() => {
-            let step=(HTML.scrollTop/duration*17);
-            HTML.scrollTop-=step;
-            if(HTML.scrollTop<=0){
+            let step = (HTML.scrollTop / duration * 17);
+            HTML.scrollTop -= step;
+            if (HTML.scrollTop <= 0) {
                 clearInterval(timer);
-                timer=null;
+                timer = null;
                 return;
             }
-        },17);
+        }, 17);
     }
     function offset(element) {
         let parent = element.offsetParent,
@@ -729,31 +727,31 @@ let floorNav=(function(){
             left
         }
     }
-    return{
-        init(){
-            window.onscroll=function(){
-                let htmlC=document.documentElement.clientHeight,
-                htmlTop=document.documentElement.scrollTop;
-                floorNav.style.top=htmlC/3.2+'px';
-                if(zhiboTop<=htmlTop) floorA[0].classList.add('floorbg');
-                if(zhiboTop+zhibo.offsetHeight>=htmlTop+htmlC || zhiboTop+zhibo.offsetHeight<htmlTop)floorA[0].classList.remove('floorbg');
-               
-                if(donghuaTop<=htmlTop) floorA[1].classList.add('floorbg');
-                if(donghuaTop+donghua.offsetHeight>=htmlTop+htmlC || donghuaTop+donghua.offsetHeight<htmlTop)floorA[1].classList.remove('floorbg');
+    return {
+        init() {
+            window.onscroll = function () {
+                let htmlC = document.documentElement.clientHeight,
+                    htmlTop = document.documentElement.scrollTop;
+                floorNav.style.top = htmlC / 3.2 + 'px';
+                if (zhiboTop <= htmlTop) floorA[0].classList.add('floorbg');
+                if (zhiboTop + zhibo.offsetHeight >= htmlTop + htmlC || zhiboTop + zhibo.offsetHeight < htmlTop) floorA[0].classList.remove('floorbg');
 
-                if(fanjuTop<=htmlTop) floorA[2].classList.add('floorbg');
-                if(fanjuTop+fanju.offsetHeight>=htmlTop+htmlC)floorA[2].classList.remove('floorbg');
-                if(fanjuRecTop+fanjuRec.offsetHeight<htmlTop)floorA[2].classList.remove('floorbg');
+                if (donghuaTop <= htmlTop) floorA[1].classList.add('floorbg');
+                if (donghuaTop + donghua.offsetHeight >= htmlTop + htmlC || donghuaTop + donghua.offsetHeight < htmlTop) floorA[1].classList.remove('floorbg');
 
-                if(guochuangTop<=htmlTop) floorA[3].classList.add('floorbg');
-                if(guochuangTop+guochuang.offsetHeight<=htmlTop ||guochuangTop+guochuang.offsetHeight>=htmlTop+htmlC )floorA[3].classList.remove('floorbg');
+                if (fanjuTop <= htmlTop) floorA[2].classList.add('floorbg');
+                if (fanjuTop + fanju.offsetHeight >= htmlTop + htmlC) floorA[2].classList.remove('floorbg');
+                if (fanjuRecTop + fanjuRec.offsetHeight < htmlTop) floorA[2].classList.remove('floorbg');
 
-                if(manhuaTop<=htmlTop) floorA[4].classList.add('floorbg');
-                if(manhuaTop+manhua.offsetHeight<=htmlTop ||manhuaTop+manhua.offsetHeight>=htmlTop+htmlC)floorA[4].classList.remove('floorbg');
+                if (guochuangTop <= htmlTop) floorA[3].classList.add('floorbg');
+                if (guochuangTop + guochuang.offsetHeight <= htmlTop || guochuangTop + guochuang.offsetHeight >= htmlTop + htmlC) floorA[3].classList.remove('floorbg');
 
-                if(tuijianTop<=htmlTop) floorA[5].classList.add('floorbg');
-                if(tuijianTop+tuijian.offsetHeight<=htmlTop|| tuijianTop+tuijian.offsetHeight>=htmlTop+htmlC)floorA[5].classList.remove('floorbg');
-        
+                if (manhuaTop <= htmlTop) floorA[4].classList.add('floorbg');
+                if (manhuaTop + manhua.offsetHeight <= htmlTop || manhuaTop + manhua.offsetHeight >= htmlTop + htmlC) floorA[4].classList.remove('floorbg');
+
+                if (tuijianTop <= htmlTop) floorA[5].classList.add('floorbg');
+                if (tuijianTop + tuijian.offsetHeight <= htmlTop || tuijianTop + tuijian.offsetHeight >= htmlTop + htmlC) floorA[5].classList.remove('floorbg');
+
             }
         }
     }
