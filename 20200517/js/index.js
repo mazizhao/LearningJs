@@ -697,14 +697,17 @@ let floorNav = (function () {
         manhuaTop = offset(manhua).top,
         tuijianTop = offset(tuijian).top;
     callback.onclick = function () {
+        if (window.isload) return;
+        window.isload = true;
         let HTML = document.documentElement,
             duration = 1000;
+        let step = (HTML.scrollTop / duration * 17);
         let timer = setInterval(() => {
-            let step = (HTML.scrollTop / duration * 17);
             HTML.scrollTop -= step;
             if (HTML.scrollTop <= 0) {
                 clearInterval(timer);
                 timer = null;
+                window.isload = false;
                 return;
             }
         }, 17);
