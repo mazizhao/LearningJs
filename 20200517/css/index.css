@@ -2165,6 +2165,7 @@ footer .footLast .footTopF ul a {
   line-height: 32px;
   margin-right: 80px;
   font-size: 16px;
+  color: #000000;
   transition: color 0.3s linear;
 }
 footer .footLast .footTopF ul a:hover {
@@ -2188,6 +2189,7 @@ footer .footLast .footTopS ul li a {
   display: block;
   line-height: 30px;
   font-size: 16px;
+  color: #000000;
   transition: color 0.3s linear;
 }
 footer .footLast .footTopS ul li a:hover {
